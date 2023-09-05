@@ -33,5 +33,7 @@ unknown-git = "deny"
 
 allow-git = [
     # Unreleased version for steamworks, need release with PR https://github.com/Noxime/steamworks-rs/pull/134
-    "https://github.com/Noxime/steamworks-rs"
+    "https://github.com/Noxime/steamworks-rs",
+    # Unreleased/breaking version for webtransport with the feature "i-implement-a-third-party-backend-and-opt-into-breaking-changes"
+    "https://github.com/hyperium/h3"
 ]
