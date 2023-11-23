@@ -11,19 +11,25 @@ version = "0.0.10"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
-default = ["transport"]
+default = ["transport", "web"]
+web = [] # ["renet_webtransport", "renet_webtransport_server"] # Not sure what should be in here, placeholder.
 serde = ["renet/serde"]
 transport = ["renet/transport"]
 steam = ["renet_steam"]
+client = ["renet_webtransport"]
+server = ["renet_webtransport_server", "dep:bevy-tokio-tasks"]
 
 [[example]]
 name = "simple"
-required-features = ["serde", "transport"]
+required-features = ["serde", "web"]
 
 [dependencies]
 bevy = {version = "0.12", default-features = false}
 renet = {path = "../renet", version = "0.0.14", default-features=false, features = ["bevy"]}
 renet_steam = { path = "../renet_steam", version = "0.0.1", features = [ "bevy" ], optional = true }
+renet_webtransport = { path = "../renet_webtransport", features = ["bevy"], optional = true }
+renet_webtransport_server = { path = "../renet_webtransport_server", features = ["bevy"], optional = true }
+bevy-tokio-tasks = { git = "https://github.com/foxzool/bevy-tokio-tasks.git", branch = "master", optional = true }
 
 [dev-dependencies]
 bevy = {version = "0.12", default-features = false, features = ["bevy_core_pipeline", "bevy_render", "bevy_asset", "bevy_pbr", "x11", "tonemapping_luts", "ktx2", "zstd"]}

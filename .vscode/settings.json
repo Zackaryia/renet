@@ -1,0 +1,6 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "./bevy_renet/Cargo.toml"
+    ],
+    "rust-analyzer.cargo.features": "all"
+}

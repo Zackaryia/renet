@@ -187,7 +187,7 @@ impl WebTransportClient {
         }
     }
 
-    pub fn disconnect(self) {
+    pub fn disconnect(&mut self) {
         handle_promise(self.writer.close());
         self.web_transport.close();
         #[cfg(feature = "worker")]
